@@ -1,0 +1,60 @@
+{
+  "id": "org.andriders.talk.sasara",
+  "name": "さとうささら(Default)",
+  "sounds": [
+    {
+      "name": "ACEsを起動",
+      "notificationKey": "org.andriders.ace.ID_CENTRAL_SERVICE_BOOT",
+      "soundKey": "aces-system-boot-ace-service"
+    },
+    {
+      "name": "ハートレートモニターに接続",
+      "notificationKey": "org.andriders.ace.ID_GADGET_BLE_HRMONITOR_CONNECT",
+      "soundKey": "aces-system-sensor-hrm-connected"
+    },
+    {
+      "name": "ハートレートモニターから切断",
+      "notificationKey": "org.andriders.ace.ID_GADGET_BLE_HRMONITOR_DISCONNECT",
+      "soundKey": "aces-system-sensor-hrm-disconnected"
+    },
+    {
+      "name": "スピード＆ケイデンスセンサーに接続",
+      "notificationKey": "org.andriders.ace.ID_GADGET_BLE_SPEED_CADENCE_CONNECT",
+      "soundKey": "aces-system-sensor-sc-connected"
+    },
+    {
+      "name": "スピード＆ケイデンスセンサーから切断",
+      "notificationKey": "org.andriders.ace.ID_GADGET_BLE_SPEED_CADENCE_DISCONNECT",
+      "soundKey": "aces-system-sensor-sc-disconnected"
+    },
+    {
+      "name": "Twitterのツイートを完了",
+      "notificationKey": "org.andriders.plugin.sns.TWEET_COMPLETED",
+      "soundKey": "aces-notification-twitter-tweeted"
+    },
+    {
+      "name": "10km移動",
+      "soundKey": "aces-activity-move-10km"
+    },
+    {
+      "name": "20km移動",
+      "soundKey": "aces-activity-move-20km"
+    },
+    {
+      "name": "30km移動",
+      "soundKey": "aces-activity-move-30km"
+    },
+    {
+      "name": "40km移動",
+      "soundKey": "aces-activity-move-40km"
+    },
+    {
+      "name": "50km移動",
+      "soundKey": "aces-activity-move-50km"
+    },
+    {
+      "name": "近接コマンドを起動",
+      "soundKey": "aces-command-proximity"
+    }
+  ]
+}

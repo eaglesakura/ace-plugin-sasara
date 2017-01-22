@@ -1,7 +1,7 @@
 {
   "classesOutputPath": "src/main/gen/java",
   "configOutputPath": "src/main/res/raw",
-  "packageName": "replace.your.app_package.gen.prop",
+  "packageName": "org.andriders.talk.sasara.gen.prop",
   "configName": "app_properties.json",
   "groups": [
     {

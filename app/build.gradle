@@ -163,7 +163,7 @@ android {
         /**
          * FIXME: ApplicationID(package name)に書き換える
          */
-        applicationId "replace.your.app_package"
+        applicationId "org.andriders.talk.sasara"
         minSdkVersion 19
         targetSdkVersion 25
 

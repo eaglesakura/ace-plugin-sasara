@@ -3,7 +3,7 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-    <replace.your.app_package.ui.widget.web.AppWebView
+    <org.andriders.talk.sasara.ui.widget.web.AppWebView
             android:id="@id/Content.Web"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
