@@ -1,14 +1,9 @@
 package org.andriders.talk.sasara.data;
 
-import com.eaglesakura.android.garnet.Garnet;
 import com.eaglesakura.android.garnet.Initializer;
-import com.eaglesakura.android.garnet.Inject;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
-
-import org.andriders.talk.sasara.data.db.AppDatabase;
-import org.andriders.talk.sasara.provider.AppDatabaseProvider;
 
 /**
  * アプリデータ管理用Managerの基底クラス
@@ -27,11 +22,6 @@ public abstract class AppDataManager {
     @NonNull
     private final Object lock = new Object();
 
-    @Inject(value = AppDatabaseProvider.class, name = AppDatabaseProvider.NAME_READ)
-    private AppDatabase mReadDatabase;
-
-    @Inject(value = AppDatabaseProvider.class, name = AppDatabaseProvider.NAME_WRITE)
-    private AppDatabase mWriteDatabase;
 
     public AppDataManager(Context context) {
         mContext = context;
@@ -39,22 +29,13 @@ public abstract class AppDataManager {
 
     @Initializer
     public void initialize() {
-        Garnet.create(this)
-                .depend(Context.class, mContext)
-                .inject();
+//        Garnet.create(this)
+//                .depend(Context.class, mContext)
+//                .inject();
     }
 
-    /**
-     * 読み込み専用モードで開く
-     */
-    protected AppDatabase openRead() {
-        return mReadDatabase.openReadOnly(AppDatabase.class);
+    public Context getContext() {
+        return mContext;
     }
 
-    /**
-     * 書込み可能モードで開く
-     */
-    protected AppDatabase openWrite() {
-        return mWriteDatabase.openWritable(AppDatabase.class);
-    }
 }

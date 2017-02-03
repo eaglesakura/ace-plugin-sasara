@@ -5,7 +5,6 @@ import com.eaglesakura.android.garnet.Provide;
 import com.eaglesakura.android.garnet.Singleton;
 
 import org.andriders.talk.sasara.CustomApplication;
-import org.andriders.talk.sasara.data.setting.AppSettings;
 
 
 /**
@@ -19,8 +18,4 @@ public class AppContextProvider extends ContextProvider {
         return (CustomApplication) getApplication();
     }
 
-    @Provide
-    public AppSettings provideAppSettings() {
-        return new AppSettings.Builder(getContext()).build();
-    }
 }

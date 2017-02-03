@@ -5,7 +5,7 @@ buildscript {
     }
 
     dependencies {
-        classpath "com.eaglesakura:plugin-ci-support:1.0.14"
+        classpath "com.eaglesakura:plugin-ci-support:1.1.196"
     }
 }
 
@@ -57,7 +57,6 @@ deploygate {
             message = "for GooglePlay ${eglibrary.ci.buildDate}";
             releaseNote = "for GooglePlay ${eglibrary.ci.buildDate}";
         }
-
     }
 }
 

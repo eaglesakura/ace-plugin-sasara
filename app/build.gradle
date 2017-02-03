@@ -1,7 +1,8 @@
 /**
- * FIXME: アプリバージョンに書き換える
+ * 1.0.x  : 初期リリース
  */
 def APP_VERSION = "1.0"
+def ACE_SDK_VERSION = "3.0.491"
 
 
 apply plugin: 'com.android.application'
@@ -24,23 +25,12 @@ dependencies {
         compile 'com.eaglesakura:android-simple-utils:1.+'
         compile 'com.eaglesakura:android-thread:1.+'
         compile 'com.eaglesakura:android-text-kvs:2.+'
-        compile 'com.eaglesakura:android-net:1.+'
         compile 'com.eaglesakura:rxandroid-support:2.+'
         compile 'com.eaglesakura:onactivityresult-invoke:1.+'
         compile 'com.eaglesakura:greendao-wrapper:2.+'
         compile 'com.eaglesakura:small-aquery:+'
         compile 'com.eaglesakura:margarineknife:1.+'
         compile 'com.eaglesakura:android-framework:2.+'
-
-        /**
-         * Optional
-         */
-//        compile 'com.eaglesakura:android-egl:1.+'
-//        compile 'com.eaglesakura:android-camera:1.+'
-//        compile 'com.eaglesakura:android-bluetooth:1.+'
-//        compile 'com.eaglesakura:android-command-service:1.+'
-//        compile 'com.eaglesakura:android-gms:1.+'
-//        compile 'com.eaglesakura:android-firebase:1.+'
 
         /**
          * UnitTest
@@ -57,18 +47,8 @@ dependencies {
         compile project(":eglibrary:simple-utils")
         compile project(':eglibrary:android-thread')
         compile project(':eglibrary:android-text-kvs')
-        compile project(':eglibrary:android-net')
         compile project(':eglibrary:android-framework')
         compile project(':eglibrary:greendao-wrapper')
-
-        /**
-         * Optional
-         */
-//        compile project(':eglibrary:android-camera')            // Camera API対応
-//        compile project(':eglibrary:android-command-service')   // Service対応
-//        compile project(':eglibrary:android-bluetooth')         // Bluetooth対応
-//        compile project(":eglibrary:android-gms")               // Google Play Service対応
-//        compile project(":eglibrary:android-firebase")          // Firebase対応
 
         /**
          * UnitTest
@@ -84,39 +64,9 @@ dependencies {
     compile "com.android.support:appcompat-v7:${ANDROID_SUPPORT_LIB_VERSION}"
     compile "com.android.support:cardview-v7:${ANDROID_SUPPORT_LIB_VERSION}"
     compile "com.android.support:recyclerview-v7:${ANDROID_SUPPORT_LIB_VERSION}"
-    compile "com.android.support:palette-v7:${ANDROID_SUPPORT_LIB_VERSION}"
     compile "com.android.support:design:${ANDROID_SUPPORT_LIB_VERSION}"
     compile "com.android.support:support-vector-drawable:${ANDROID_SUPPORT_LIB_VERSION}"
     compile "com.android.support:support-annotations:${ANDROID_SUPPORT_LIB_VERSION}"
-//    compile "com.android.support:percent:${ANDROID_SUPPORT_LIB_VERSION}"                  // PercentLayout
-//    compile "com.android.support:exifinterface:${ANDROID_SUPPORT_LIB_VERSION}"            // Exif Interface
-//    compile "com.android.support:customtabs:${ANDROID_SUPPORT_LIB_VERSION}"               // Chrome Custom Tabs
-
-    /**
-     * Play Service
-     * https://developers.google.com/android/guides/overview
-     * https://developers.google.com/android/guides/setup
-     */
-//    compile "com.google.android.gms:play-services-plus:${ANDROID_PLAYSERVICE_LIB_VERSION}"        // Google+
-//    compile "com.google.android.gms:play-services-auth:${ANDROID_PLAYSERVICE_LIB_VERSION}"        // Google Login
-//    compile "com.google.android.gms:play-services-identity:${ANDROID_PLAYSERVICE_LIB_VERSION}"    // Google Address API
-//    compile "com.google.android.gms:play-services-analytics:${ANDROID_PLAYSERVICE_LIB_VERSION}"   // Google Analytics
-//    compile "com.google.android.gms:play-services-awareness:${ANDROID_PLAYSERVICE_LIB_VERSION}"   // Google Awareness
-//    compile "com.google.android.gms:play-services-cast:${ANDROID_PLAYSERVICE_LIB_VERSION}"        // Google Cast
-//    compile "com.google.android.gms:play-services-gcm:${ANDROID_PLAYSERVICE_LIB_VERSION}"         // Google Cloud Messaging
-//    compile "com.google.android.gms:play-services-drive:${ANDROID_PLAYSERVICE_LIB_VERSION}"       // Google Drive
-//    compile "com.google.android.gms:play-services-fitness:${ANDROID_PLAYSERVICE_LIB_VERSION}"     // Google Fit
-//    compile "com.google.android.gms:play-services-location:${ANDROID_PLAYSERVICE_LIB_VERSION}"    // Google Location and Activity Recognition
-//    compile "com.google.android.gms:play-services-maps:${ANDROID_PLAYSERVICE_LIB_VERSION}"        // Google Maps
-//    compile "com.google.android.gms:play-services-ads:${ANDROID_PLAYSERVICE_LIB_VERSION}"         // Google Mobile Ads
-//    compile "com.google.android.gms:play-services-places:${ANDROID_PLAYSERVICE_LIB_VERSION}"      // Google Places
-//    compile "com.google.android.gms:play-services-vision:${ANDROID_PLAYSERVICE_LIB_VERSION}"      // Mobile Vision
-//    compile "com.google.android.gms:play-services-nearby:${ANDROID_PLAYSERVICE_LIB_VERSION}"      // Google Nearby
-//    compile "com.google.android.gms:play-services-panorama:${ANDROID_PLAYSERVICE_LIB_VERSION}"    // Google Panorama Viewer
-//    compile "com.google.android.gms:play-services-games:${ANDROID_PLAYSERVICE_LIB_VERSION}"       // Google Play Game services
-//    compile "com.google.android.gms:play-services-safetynet:${ANDROID_PLAYSERVICE_LIB_VERSION}"   // SafetyNet
-//    compile "com.google.android.gms:play-services-wallet:${ANDROID_PLAYSERVICE_LIB_VERSION}"      // Android Pay
-//    compile "com.google.android.gms:play-services-wearable:${ANDROID_PLAYSERVICE_LIB_VERSION}"    // Android Wear
 
     /**
      * Firebase
@@ -126,23 +76,17 @@ dependencies {
 //    compile "com.google.firebase:firebase-auth:${ANDROID_PLAYSERVICE_LIB_VERSION}"                // Firebase Auth
 //    compile "com.google.firebase:firebase-config:${ANDROID_PLAYSERVICE_LIB_VERSION}"              // Firebase Remote Configs
 //    compile "com.google.firebase:firebase-database:${ANDROID_PLAYSERVICE_LIB_VERSION}"            // Firebase Realtime Database
-//    releaseCompile "com.google.firebase:firebase-crash:${ANDROID_PLAYSERVICE_LIB_VERSION}"
+    releaseCompile "com.google.firebase:firebase-crash:${ANDROID_PLAYSERVICE_LIB_VERSION}"
 
     /**
      * Remote Debug
      */
     debugCompile 'com.deploygate:sdk:3.1'
 
-
     /**
-     * Android Things対応の場合
+     * ACE SDK
      */
-//    provided 'com.google.android.things:androidthings:0.1-devpreview'
-
-    /**
-     * Android Canvas Test
-     */
-//    testCompile 'org.khronos:opengl-api:gl1.1-android-2.1_r1'
+    compile "com.eaglesakura:andriders-central-engine-sdk:${ACE_SDK_VERSION}"
 
 }
 
@@ -160,9 +104,6 @@ android {
     }
 
     defaultConfig {
-        /**
-         * FIXME: ApplicationID(package name)に書き換える
-         */
         applicationId "org.andriders.talk.sasara"
         minSdkVersion 19
         targetSdkVersion 25
