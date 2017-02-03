@@ -1,5 +1,6 @@
 package org.andriders.talk.sasara.service;
 
+import com.eaglesakura.andriders.central.CentralDataHandler;
 import com.eaglesakura.andriders.central.CentralNotificationHandler;
 import com.eaglesakura.andriders.command.CommandKey;
 import com.eaglesakura.andriders.plugin.AcePluginService;
@@ -113,6 +114,7 @@ public class SoundPluginService extends Service implements AcePluginService {
         mLifecycleDelegate.onCreate();
 
         connection.getCentralDataReceiver().addHandler(mNotificationHandler);
+        connection.getCentralDataReceiver().addHandler(mCentralDataHandler);
     }
 
     @Override
@@ -149,6 +151,22 @@ public class SoundPluginService extends Service implements AcePluginService {
             if (key.toString().startsWith("proximity#")) {
                 SoundSource sound = mSourceCollection.find(src -> src.getSoundKey().equals("aces-command-proximity"));
                 play(sound);
+            }
+        }
+    };
+
+    CentralDataHandler mCentralDataHandler = new CentralDataHandler() {
+        int mLastDistance = -1;
+
+        @Override
+        public void onReceived(RawCentralData newData) {
+            int distance = (int) (newData.session.distanceKm / 10);
+            if (mLastDistance != distance) {
+                mLastDistance = distance;
+                SoundSource source = mSourceCollection.find(
+                        src -> src.getSoundKey().equals(StringUtil.format("aces-activity-move-%d0km", distance))
+                );
+                play(source);
             }
         }
     };
