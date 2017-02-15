@@ -23,6 +23,7 @@ import com.eaglesakura.thread.Holder;
 import com.eaglesakura.util.StringUtil;
 import com.eaglesakura.util.Util;
 
+import org.andriders.talk.sasara.R;
 import org.andriders.talk.sasara.data.SoundDataManager;
 import org.andriders.talk.sasara.data.sound.SoundSource;
 import org.andriders.talk.sasara.data.sound.SoundSourceCollection;
@@ -99,7 +100,7 @@ public class SoundPluginService extends Service implements AcePluginService {
         info.setActivated(true);
         info.setCategory(Category.CATEGORY_OTHERS);
         info.setHasSetting(false);
-        info.setSummary("A.C.E.の通知を「さとうささら」が音声でお知らせします。");
+        info.setSummary(getString(R.string.Plugin_Info_Summary));
         return info;
     }
 

@@ -3,4 +3,5 @@
     <!-- エラー関連 -->
     <string name="Title.Error.Runtime">実行時エラー</string>
     <string name="Message.Error.Runtime">処理中に問題が発生しました</string>
+    <string name="Plugin.Info.Summary">A.C.E.の通知を「さとうささら」が音声でお知らせします。</string>
 </resources>
