@@ -104,8 +104,8 @@ android {
     }
 
     defaultConfig {
-        applicationId "org.andriders.talk.sasara"
-        minSdkVersion 19
+        applicationId "org.andriders.plugin.sasara"
+        minSdkVersion 21
         targetSdkVersion 25
 
         versionCode eglibrary.ci.buildVersionCode as int

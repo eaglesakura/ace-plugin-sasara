@@ -209,7 +209,7 @@ public class SoundPluginService extends Service implements AcePluginService {
             AssetFileDescriptor fd = context.getResources().getAssets().openFd(assetsPath);
             player.setOnCompletionListener(mp -> holder.set(Boolean.TRUE));
             player.setDataSource(fd.getFileDescriptor(), fd.getStartOffset(), fd.getLength());
-            player.setAudioStreamType(AudioManager.STREAM_NOTIFICATION);
+            player.setAudioStreamType(AudioManager.STREAM_ALARM);
             player.prepare();
             player.start();
 
