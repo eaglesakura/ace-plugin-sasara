@@ -13,6 +13,14 @@ apply plugin: 'com.eaglesakura.ci-support'
 apply plugin: 'deploygate'
 apply from: "private/private.gradle"
 
+private String getDeployMessage() {
+    try {
+        return file("deploy-log.txt").text;
+    } catch (Throwable e) {
+        return "";
+    }
+}
+
 /**
  * フレーバー指定でapkを検索
  * @return 検索したAPKファイル or null
@@ -41,22 +49,60 @@ deploygate {
 
     apks {
         /**
-         * googleplay debug
+         * 本番バージョン
          */
-        googleplayDebug {
-            sourceFile = getApk("app", null, "debug");
-            message = "for GooglePlay ${eglibrary.ci.buildDate}";
-            releaseNote = "for GooglePlay Debug ${eglibrary.ci.buildDate}";
-        }
-
-        /**
-         * googleplay release
-         */
-        googleplayRelease {
+        release {
             sourceFile = getApk("app", null, "release");
-            message = "for GooglePlay ${eglibrary.ci.buildDate}";
-            releaseNote = "for GooglePlay ${eglibrary.ci.buildDate}";
+            message = "for Release App ${eglibrary.ci.buildDate}\n${getDeployMessage()}";
+            releaseNote = "for Develop App | auto deploy | ${eglibrary.ci.buildDate}";
         }
     }
+}
+
+def APPLICATION_ID = "org.andriders.plugin.sasara"
+
+/**
+ * アルファ版: APKと更新情報をアップロードする
+ */
+task uploadGooglePlayAlphaVersion(type: com.eaglesakura.gradle.task.AndroidGooglePlayPublishTask) {
+    applicationId = APPLICATION_ID;
+    track = "alpha";
+    apk = getApk("app", null, "release")
+    serviceAccountEmail = GOOGLEPLAY_SERVICEACCOUNT_MAIL;
+    p12 = GOOGLEPLAY_DEPLOY_P12_FILE
+}
+
+/**
+ * ベータ版: APKと更新情報をアップロードする
+ */
+task uploadGooglePlayBetaVersion(type: com.eaglesakura.gradle.task.AndroidGooglePlayPublishTask) {
+    applicationId = APPLICATION_ID;
+    track = "beta";
+    apk = getApk("app", null, "release")
+    apkListings = file("googleplay/beta")
+    serviceAccountEmail = GOOGLEPLAY_SERVICEACCOUNT_MAIL;
+    p12 = GOOGLEPLAY_DEPLOY_P12_FILE
+}
+
+/**
+ * 製品版: APKと更新情報をアップロードする
+ */
+task uploadGooglePlayReleaseVersion(type: com.eaglesakura.gradle.task.AndroidGooglePlayPublishTask) {
+    applicationId = APPLICATION_ID;
+    track = "production";
+    apk = getApk("app", null, "release")
+    apkListings = file("googleplay/production")
+    serviceAccountEmail = GOOGLEPLAY_SERVICEACCOUNT_MAIL;
+    p12 = GOOGLEPLAY_DEPLOY_P12_FILE
+}
+
+/**
+ * GooglePlay登録情報を送信する
+ */
+task uploadGooglePlayListings(type: com.eaglesakura.gradle.task.AndroidGooglePlayPublishTask) {
+    applicationId = APPLICATION_ID;
+    serviceAccountEmail = GOOGLEPLAY_SERVICEACCOUNT_MAIL;
+    listings = file("googleplay/production")
+    p12 = GOOGLEPLAY_DEPLOY_P12_FILE
 }
 

@@ -56,3 +56,9 @@ ext.RELEASE_KEYSTORE_ALIAS_PASS = "apprelease"
  */
 ext.DEPLOYGATE_USER_NAME = "${System.env.DEPLOYGATE_USER_NAME}"
 ext.DEPLOYGATE_API_KEY = "${System.env.DEPLOYGATE_API_KEY}"
+
+/**
+ * Google Playサービスアカウント設定
+ */
+ext.GOOGLEPLAY_SERVICEACCOUNT_MAIL = "ci-deploy@andriders-central-engine-v3.iam.gserviceaccount.com"
+ext.GOOGLEPLAY_DEPLOY_P12_FILE = file("googleplay/release-deploy.p12")

@@ -1,0 +1,7 @@
+Andriders Central Engine v3(A.C.E. v3)の機能を拡張し、ユーザーのアクティビティに合わせて「さとうささら」がしゃべります。
+
+A.C.E. v3をインストール＆起動し、プラグイン設定 > その他 > さとうささらプラグインを有効化してください。
+
+Andriders Central Engine v3は下記のURLからインストールできます。
+
+https://play.google.com/store/apps/details?id=org.andriders.ace
