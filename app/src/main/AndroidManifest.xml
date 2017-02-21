@@ -13,7 +13,7 @@
         <service
                 android:name=".service.SoundPluginService"
                 android:icon="@mipmap/ic_launcher"
-                android:label="@string/Env.AppName">
+                android:label="@string/Env.PluginName">
             <intent-filter>
                 <action android:name="org.andriders.ace.ACTION_ACE_EXTENSION_BIND"/>
             </intent-filter>
