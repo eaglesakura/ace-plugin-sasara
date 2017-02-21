@@ -37,7 +37,7 @@ deployment:
     branch: develop
     commands:
       - ./gradlew :app:dependencyUpdates
-#      - ./gradlew uploadGooglePlayAlphaVersion
+      - ./gradlew uploadGooglePlayAlphaVersion
       - ./script/circleci-deploy-deploygate.sh
       - cp -r ./ci-release $CIRCLE_ARTIFACTS
   nightly:
